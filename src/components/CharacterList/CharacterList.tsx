@@ -1,8 +1,12 @@
 import { useState, useEffect } from 'react';
 
+import { Loader } from '../Loader';
+
 import useFetch from '../../hooks/useFetch';
 
 import { PeopleData } from '../../types/SWAPI';
+
+import { CharacterListContainer, CharacterUL } from './CharacterList.styled';
 
 export default function CharacterList() {
 	const { loading, data, error, setUrl, setOptions } = useFetch<PeopleData>(
@@ -10,19 +14,21 @@ export default function CharacterList() {
 	);
 
 	return (
-		<>
-			{loading && <p>LOADING</p>}
+		<CharacterListContainer>
+			{loading && <Loader />}
 			{error && <p>Something went wrong</p>}
 			{!loading &&
 				!error &&
 				data?.results?.length &&
 				data?.results?.length > 0 && (
 					<div>
-						<ul>
+						<CharacterUL>
 							{data?.results?.map((el) => (
-								<li key={el.name}>{el.name}</li>
+								<li key={el.name}>
+									<button>{el.name}</button>
+								</li>
 							))}
-						</ul>
+						</CharacterUL>
 						{data?.previous && (
 							<button onClick={() => setUrl(data.previous as RequestInfo)}>
 								Previous page
@@ -35,6 +41,6 @@ export default function CharacterList() {
 						)}
 					</div>
 				)}
-		</>
+		</CharacterListContainer>
 	);
 }
