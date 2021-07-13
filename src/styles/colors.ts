@@ -1,18 +1,10 @@
 import { css } from 'styled-components';
 
 const colors = css`
-	--colors-irisBlue: #624de3;
-	--colors-darkBlue: #00234b;
-	--colors-redPink: #ff4a5a;
-	--colors-cosmos: #ffdbde;
-	--colors-bayoux: #525f7f;
-	--colors-lynch: #617798;
-	--colors-pigeon: #a8bdd4;
-	--colors-heather: #b1becd;
-	--colors-mischka: #e8ecee;
-	--colors-catskillWhite: #eaf0f6;
-	--colors-linkWater: #f4f7fc;
-	--colors-blank: #ffffff;
+	--colors-yellow: rgb(247, 226, 37);
+	--colors-black: rgba(0, 0, 0);
+	--colors-white: rgb(255, 255, 255);
+	--colors-blue: rgb(49, 165, 218);
 `;
 
 export default colors;

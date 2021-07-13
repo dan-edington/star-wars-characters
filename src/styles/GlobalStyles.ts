@@ -29,8 +29,8 @@ const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    color: var(--colors-darkBlue);
-    background-color: var(--colors-linkWater);
+    color: var(--colors-white);
+    background-color: var(--colors-black);
   }
 `;
 
