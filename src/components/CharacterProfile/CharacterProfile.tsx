@@ -36,20 +36,6 @@ export default function CharacterProfile({
 		useState<Person | null>(null);
 	const [loading, setLoading] = useState(true);
 
-	const labels = {
-		name: 'Name',
-		birth_year: 'Birth Year',
-		eye_color: 'Eye Color',
-		skin_color: 'Skin Color',
-		mass: 'Mass',
-		height: 'Height',
-		gender: 'Gender',
-		species: 'Species',
-		starships: 'Starships',
-		vehicles: 'Vehicles',
-		films: 'Appears In',
-	};
-
 	useEffect(() => {
 		const fetchExtraData = async () => {
 			characterData.films = await fetchMultiple(
