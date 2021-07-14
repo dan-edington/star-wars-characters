@@ -7,7 +7,7 @@ export const AppContainer = styled.div`
 	background-position: 90% 20%, 0% 0%;
 	background-size: 30%, cover;
 	background-repeat: no-repeat;
-	overflow: hidden;
+	overflow-x: hidden;
 `;
 
 export const AppTitle = styled.h1`
