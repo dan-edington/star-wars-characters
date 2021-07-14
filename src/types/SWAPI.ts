@@ -4,18 +4,35 @@ interface Results {
 	next: null | string;
 }
 
-interface Person {
+export interface Film {
+	title: string;
+}
+
+export interface Species {
+	name: string;
+}
+
+export interface Vehicle {
+	model: string;
+}
+
+export interface Planet {
+	name: string;
+}
+export interface Person {
 	name: string;
 	birth_year: string;
 	eye_color: string;
 	skin_color: string;
+	hair_color: string;
 	mass: string;
 	height: string;
 	gender: string;
-	films: [string];
-	species: [string];
-	starships: [string];
-	vehicles: [string];
+	films: [string | Film];
+	species: [string | Species];
+	starships: [string | Vehicle];
+	vehicles: [string | Vehicle];
+	homeworld: string | [Planet];
 }
 
 export interface PeopleData extends Results {

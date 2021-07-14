@@ -1,17 +1,26 @@
-import { useState, useEffect } from 'react';
-
 import { Loader } from '../Loader';
 
 import useFetch from '../../hooks/useFetch';
 
-import { PeopleData } from '../../types/SWAPI';
+import { PeopleData, Person } from '../../types/SWAPI';
 
 import { CharacterListContainer, CharacterUL } from './CharacterList.styled';
 
-export default function CharacterList() {
+interface CharacterListProps {
+	children?: React.ReactNode;
+	setCharacterDataFn: React.Dispatch<React.SetStateAction<Person | null>>;
+}
+
+export default function CharacterList({
+	setCharacterDataFn,
+}: CharacterListProps) {
 	const { loading, data, error, setUrl, setOptions } = useFetch<PeopleData>(
 		'https://swapi.dev/api/people/'
 	);
+
+	const selectCharacter = (characterData: Person) => {
+		setCharacterDataFn(characterData);
+	};
 
 	return (
 		<CharacterListContainer>
@@ -25,7 +34,7 @@ export default function CharacterList() {
 						<CharacterUL>
 							{data?.results?.map((el) => (
 								<li key={el.name}>
-									<button>{el.name}</button>
+									<button onClick={() => selectCharacter(el)}>{el.name}</button>
 								</li>
 							))}
 						</CharacterUL>
