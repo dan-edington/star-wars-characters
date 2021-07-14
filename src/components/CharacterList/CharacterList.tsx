@@ -1,10 +1,15 @@
 import { Loader } from '../Loader';
+import { Button } from '../Button';
 
 import useFetch from '../../hooks/useFetch';
 
 import { PeopleData, Person } from '../../types/SWAPI';
 
-import { CharacterListContainer, CharacterUL } from './CharacterList.styled';
+import {
+	CharacterListContainer,
+	CharacterUL,
+	ButtonContainer,
+} from './CharacterList.styled';
 
 interface CharacterListProps {
 	children?: React.ReactNode;
@@ -38,16 +43,24 @@ export default function CharacterList({
 								</li>
 							))}
 						</CharacterUL>
-						{data?.previous && (
-							<button onClick={() => setUrl(data.previous as RequestInfo)}>
-								Previous page
-							</button>
-						)}
-						{data?.next && (
-							<button onClick={() => setUrl(data.next as RequestInfo)}>
-								Next page
-							</button>
-						)}
+						<ButtonContainer>
+							{data?.previous && (
+								<Button
+									onClick={() => setUrl(data.previous as RequestInfo)}
+									direction="left"
+								>
+									Previous page
+								</Button>
+							)}
+							{data?.next && (
+								<Button
+									onClick={() => setUrl(data.next as RequestInfo)}
+									direction="right"
+								>
+									Next page
+								</Button>
+							)}
+						</ButtonContainer>
 					</div>
 				)}
 		</CharacterListContainer>

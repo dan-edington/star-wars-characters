@@ -8,11 +8,11 @@ export const CharacterUL = styled.ul`
 	padding: 0;
 
 	li {
-		margin-bottom: 20px;
+		margin-bottom: 10px;
 
 		button {
 			display: block;
-			${({ theme }) => theme.typography.h3};
+			${({ theme }) => theme.typography.body};
 			font-family: 'Righteous', sans-serif;
 			color: var(--colors-white);
 			text-shadow: 0 0 0px var(--colors-blue), 0 0 0px var(--colors-blue);
@@ -27,6 +27,21 @@ export const CharacterUL = styled.ul`
 				text-shadow: 0 0 40px var(--colors-blue), 0 0 20px var(--colors-blue);
 				cursor: pointer;
 			}
+		}
+	}
+`;
+
+export const ButtonContainer = styled.div`
+	display: flex;
+	justify-content: center;
+	--button-spacing: 25px;
+
+	button {
+		&:first-child {
+			margin-right: var(--button-spacing);
+		}
+		&:last-child {
+			margin-left: var(--button-spacing);
 		}
 	}
 `;
