@@ -19,7 +19,7 @@ interface CharacterListProps {
 export default function CharacterList({
 	setCharacterDataFn,
 }: CharacterListProps) {
-	const { loading, data, error, setUrl, setOptions } = useFetch<PeopleData>(
+	const { loading, data, error, setUrl } = useFetch<PeopleData>(
 		'https://swapi.dev/api/people/'
 	);
 

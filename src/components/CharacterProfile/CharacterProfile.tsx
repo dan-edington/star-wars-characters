@@ -5,6 +5,15 @@ import { Button } from '../Button';
 
 import { ButtonContainer, ProfileText } from './CharacterProfile.styled';
 
+import {
+	hairColor,
+	homeworld,
+	species,
+	gender,
+	vehiclesAndStarships,
+	films,
+} from './CharacterProfile.functions';
+
 import { Person, Planet, Film, Species, Vehicle } from '../../types/SWAPI';
 
 interface CharacterProfileProps {
@@ -62,41 +71,6 @@ export default function CharacterProfile({
 
 		fetchExtraData();
 	}, []);
-
-	const hairColor = (hairColor: string) => {
-		if (hairColor === 'n/a' || hairColor === 'none') return 'no';
-		return hairColor;
-	};
-
-	const homeworld = (homeworld: [Planet]) => {
-		if (Array.isArray(homeworld)) return homeworld[0].name;
-		return 'Unknown';
-	};
-
-	const species = (species: [Species]) => {
-		if (species.length < 1) return 'Human';
-		return species[0].name;
-	};
-
-	const gender = (gender: string) => {
-		if (gender === 'n/a') return '';
-		return gender;
-	};
-
-	const vehiclesAndStarships = (vehicles: [Vehicle], starships: [Vehicle]) => {
-		return vehicles
-			.concat(starships)
-			.map((el) => el.model)
-			.join(', ')
-			.replace(/,(?=[^,]*$)/, ' and ');
-	};
-
-	const films = (films: [Film]) => {
-		return films
-			.map((el) => el.title)
-			.join(', ')
-			.replace(/,(?=[^,]*$)/, ' and ');
-	};
 
 	return (
 		<>
